@@ -17,9 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-
 const breadcrumbs = computed(() => {
   const route = useRoute();
   const path = route?.path ?? "";
