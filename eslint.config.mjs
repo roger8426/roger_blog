@@ -3,6 +3,7 @@ import withNuxt from "./.nuxt/eslint.config.mjs";
 import prettierPlugin from "eslint-plugin-prettier";
 import tsParser from "@typescript-eslint/parser";
 import vueParser from "vue-eslint-parser";
+import prettierConfig from "eslint-config-prettier";
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default await withNuxt({
@@ -12,7 +13,7 @@ export default await withNuxt({
   languageOptions: {
     parser: vueParser,
     parserOptions: {
-      parser: tsParser, // 用來解析 <script lang="ts">
+      parser: tsParser,
       ecmaVersion: 2020,
       sourceType: "module",
       extraFileExtensions: [".vue"],
@@ -25,8 +26,5 @@ export default await withNuxt({
       useState: "readonly",
     },
   },
-  rules: {
-    "prettier/prettier": "error",
-    "vue/multi-word-component-names": "off",
-  },
+  ...prettierConfig,
 });
