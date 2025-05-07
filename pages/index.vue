@@ -26,8 +26,6 @@ const paragraph =
 
 const displayTitle = ref("");
 const displayParagraph = ref("");
-const showHeading = ref(false);
-const showParagraph = ref(false);
 
 const typeText = async (
   text: string,
@@ -41,9 +39,7 @@ const typeText = async (
 };
 
 onMounted(async () => {
-  showHeading.value = true;
   await typeText(title, displayTitle, 80);
-  showParagraph.value = true;
   await typeText(paragraph, displayParagraph, 30);
 });
 </script>
