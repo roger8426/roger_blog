@@ -6,25 +6,33 @@ import vueParser from "vue-eslint-parser";
 import prettierConfig from "eslint-config-prettier";
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
-export default await withNuxt({
-  plugins: {
-    prettier: prettierPlugin,
-  },
-  languageOptions: {
-    parser: vueParser,
-    parserOptions: {
-      parser: tsParser,
-      ecmaVersion: 2020,
-      sourceType: "module",
-      extraFileExtensions: [".vue"],
+export default [
+  // Nuxt 設定
+  ...(await withNuxt({
+    plugins: {
+      prettier: prettierPlugin,
     },
-    globals: {
-      defineNuxtConfig: "readonly",
-      defineNuxtPlugin: "readonly",
-      useRoute: "readonly",
-      useRouter: "readonly",
-      useState: "readonly",
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: tsParser,
+        ecmaVersion: 2020,
+        sourceType: "module",
+        extraFileExtensions: [".vue"],
+      },
+      globals: {
+        defineNuxtConfig: "readonly",
+        defineNuxtPlugin: "readonly",
+        useRoute: "readonly",
+        useRouter: "readonly",
+        useState: "readonly",
+      },
+    },
+  })),
+  {
+    rules: {
+      "vue/multi-word-component-names": "off",
     },
   },
-  ...prettierConfig,
-});
+  prettierConfig,
+];
