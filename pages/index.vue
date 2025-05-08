@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import BlinkingCursor from "~/components/BlinkingCursor.vue";
+import BlinkingCursor from "~/components/ui/BlinkingCursor.vue";
 
 const title = "Welcome to Roger's blog";
 const paragraph =

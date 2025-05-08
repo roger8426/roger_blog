@@ -2,18 +2,18 @@
   <div class="flex h-screen bg-[#1e1e1e] text-gray-200 font-mono text-sm">
     <!-- 側邊欄 -->
     <aside class="w-60 bg-[#252526] border-r border-[#333] p-4">
+      <div class="flex items-center gap-1">
+        <div
+          class="cursor-pointer duration-100"
+          :class="{ '-rotate-90': arrowTurn }"
+          @click="handleSidebar"
+        >
+          <SvgIcon name="down-arrow" class="size-4" />
+        </div>
+        <p class="text-gray-400">Roger.Lo's Blog</p>
+      </div>
       <slot name="sidebar">
         <!-- 預設可插入文章清單 -->
-        <div class="flex items-center gap-1">
-          <div
-            class="cursor-pointer duration-100"
-            :class="{ '-rotate-90': arrowTurn }"
-            @click="handleSidebar"
-          >
-            <SvgIcon name="down-arrow" class="size-4" />
-          </div>
-          <p class="text-gray-400">Roger.Lo's Blog</p>
-        </div>
       </slot>
     </aside>
 
@@ -35,8 +35,8 @@
 </template>
 
 <script setup lang="ts">
-import Breadcrumb from "~/components/Breadcrumb.vue";
-import SvgIcon from "~/components/SvgIcon.vue";
+import Breadcrumb from "~/components/common/Breadcrumb.vue";
+import SvgIcon from "~/components/ui/SvgIcon.vue";
 
 const arrowTurn = ref(false);
 
