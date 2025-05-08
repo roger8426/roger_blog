@@ -3,16 +3,11 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    cursorClass?: string;
-    show?: boolean;
-  }>(),
-  {
-    cursorClass: "text-green-400",
-    show: true,
-  }
-);
+import type { BlinkingCursorProps } from "~/types/components/blinking-cursor";
+withDefaults(defineProps<BlinkingCursorProps>(), {
+  cursorClass: "",
+  show: true,
+});
 </script>
 
 <style scoped>

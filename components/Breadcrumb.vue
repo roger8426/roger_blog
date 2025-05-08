@@ -17,10 +17,14 @@
 </template>
 
 <script setup lang="ts">
-const breadcrumbs = computed(() => {
+import type { BreadcrumbType } from "~/types/components/breadcrumb";
+
+const breadcrumbs = computed<BreadcrumbType[]>(() => {
   const route = useRoute();
   const path = route?.path ?? "";
   const segments = path.split("/").filter(Boolean);
+
+  if (!segments.length) return [{ label: "Hello World!", to: "" }];
 
   return segments.map((seg, index) => ({
     label: decodeURIComponent(seg),
