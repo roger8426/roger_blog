@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import type { BlinkingCursorProps } from "~/types/components/blinking-cursor";
+
 withDefaults(defineProps<BlinkingCursorProps>(), {
   cursorClass: "",
   show: true,

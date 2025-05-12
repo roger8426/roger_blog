@@ -3,18 +3,15 @@
     <!-- 側邊欄 -->
     <aside class="w-60 bg-[#252526] border-r border-[#333] p-4">
       <div class="flex items-center gap-1">
-        <div
-          class="cursor-pointer duration-100"
+        <SvgIcon
+          name="down-arrow"
+          class="size-4 cursor-pointer duration-100"
           :class="{ '-rotate-90': arrowTurn }"
           @click="handleSidebar"
-        >
-          <SvgIcon name="down-arrow" class="size-4" />
-        </div>
-        <p class="text-gray-400">Roger.Lo's Blog</p>
+        />
+        <p class="font-bold">Roger.Lo's Blog</p>
       </div>
-      <slot name="sidebar">
-        <!-- 預設可插入文章清單 -->
-      </slot>
+      <Sidebar />
     </aside>
 
     <!-- 主內容區 -->
@@ -37,6 +34,7 @@
 <script setup lang="ts">
 import Breadcrumb from "~/components/common/Breadcrumb.vue";
 import SvgIcon from "~/components/ui/SvgIcon.vue";
+import Sidebar from "~/components/layout/Sidebar.vue";
 
 const arrowTurn = ref(false);
 
