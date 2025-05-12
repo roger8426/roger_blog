@@ -1,6 +1,4 @@
-export const usePageKey = () => {
-  const route = useRoute();
-  const name = route.name?.toString() ?? "unknown";
-
-  return name.split("___")[0];
+export const usePageKey = (to: ReturnType<typeof useRoute>) => {
+  const name = to?.name?.toString() ?? "index";
+  return name.split("__")[0];
 };
