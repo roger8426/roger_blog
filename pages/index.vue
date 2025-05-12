@@ -19,10 +19,15 @@
 
 <script setup lang="ts">
 import BlinkingCursor from "~/components/ui/BlinkingCursor.vue";
+import type { Ref } from "vue";
 
-const title = "Welcome to Roger's blog";
-const paragraph =
-  "嗨！我是 Roger，目前專注於 Vue.js 和 Nuxt.js 等前端框架的探索以及各種手刻實用 UI。我將在這裡分享我的學習過程、實驗和一些有趣的項目。";
+const { t } = useI18n();
+const key = usePageKey();
+
+const title = t(`${key}.meta.title`);
+const paragraph = t(`${key}.meta.description`);
+
+useMeta(title, paragraph);
 
 const displayTitle = ref("");
 const displayParagraph = ref("");
