@@ -1,4 +1,4 @@
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware((to) => {
   const key = usePageKey(to);
   const nuxtApp = useNuxtApp();
   const t = nuxtApp.$i18n?.t ?? ((key: string) => key);

@@ -21,13 +21,7 @@
 import BlinkingCursor from "~/components/ui/BlinkingCursor.vue";
 import type { Ref } from "vue";
 
-const { t } = useI18n();
-const key = usePageKey();
-
-const title = t(`${key}.meta.title`);
-const paragraph = t(`${key}.meta.description`);
-
-useMeta(title, paragraph);
+const { title, desc } = getMeta();
 
 const displayTitle = ref("");
 const displayParagraph = ref("");
@@ -45,7 +39,7 @@ const typeText = async (
 
 onMounted(async () => {
   await typeText(title, displayTitle, 80);
-  await typeText(paragraph, displayParagraph, 30);
+  await typeText(desc, displayParagraph, 30);
 });
 </script>
 
